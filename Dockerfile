@@ -2,11 +2,15 @@ FROM node:18
 
 WORKDIR /app
 
+COPY package.json ./
+
+RUN npm install
+
 COPY . .
 
-# FORCE clean install
-RUN rm -rf node_modules
-RUN npm install --verbose
+# DEBUG: show what's actually there
+RUN ls -la
+RUN ls -la node_modules || echo "NO NODE_MODULES"
 
 EXPOSE 3000
 
