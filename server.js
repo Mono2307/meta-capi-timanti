@@ -7,7 +7,7 @@ app.use(express.json());
 
 // ====== CONFIG (REPLACE THESE) ======
 const PIXEL_ID = 'YOUR_PIXEL_ID';
-const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN';
+const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 
 // ====== HELPERS ======
 function hash(value) {
