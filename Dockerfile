@@ -2,11 +2,11 @@ FROM node:18
 
 WORKDIR /app
 
-# Copy everything FIRST
 COPY . .
 
-# Install dependencies AFTER copy
-RUN npm install
+# FORCE clean install
+RUN rm -rf node_modules
+RUN npm install --verbose
 
 EXPOSE 3000
 
