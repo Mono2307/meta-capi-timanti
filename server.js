@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // ====== CONFIG (REPLACE THESE) ======
-const PIXEL_ID = 'YOUR_PIXEL_ID';
+const PIXEL_ID = process.env.META_PIXEL_ID;
 const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 
 // ====== HELPERS ======
