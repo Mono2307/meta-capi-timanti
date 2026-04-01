@@ -2,15 +2,13 @@ FROM node:18
 
 WORKDIR /app
 
-COPY package.json ./
+# Install deps first (important for caching)
+COPY package.json package-lock.json* ./
 
 RUN npm install
 
+# Then copy rest of code
 COPY . .
-
-# DEBUG: show what's actually there
-RUN ls -la
-RUN ls -la node_modules || echo "NO NODE_MODULES"
 
 EXPOSE 3000
 
