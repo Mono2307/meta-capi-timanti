@@ -34,7 +34,8 @@ app.post('/webhook/order', async (req, res) => {
 
   try {
     const order = req.body || {};
-
+console.log("Webhook hit", req.body.id, req.body.financial_status);
+    
     // ---- Basic mapping from Shopify payload ----
     const orderId = order.id || order.order_number || nowSeconds();
     const eventId = `order_${orderId}`;
